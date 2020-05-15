@@ -1,0 +1,32 @@
+<div class="uk-container">
+  <form [formGroup]="loginForm" class="uk-position-center">
+
+    <span uk-icon="icon: comments; ratio: 2" class="uk-align-center uk-text-center"></span>
+
+    <div class="uk-margin">
+      <div class="uk-inline uk-width-1-1">
+        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+        <input
+          class="uk-input"
+          type="email"
+          placeholder="email"
+          formControlName="email"
+          required
+        >
+      </div>
+    </div>
+
+    <div class="uk-margin">
+      <div class="uk-inline uk-width-1-1">
+        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+        <input class="uk-input" type="password" placeholder="password" formControlName="password" required>
+      </div>
+    </div>
+
+    <p *ngIf="hasErrors" class="uk-text-meta uk-text-center uk-text-danger">Incorrect email and/or password</p>
+
+    <button (click)="login()" class="uk-button uk-button-primary uk-width-1-1">Login</button>
+
+    <a class="uk-link-muted uk-text-center uk-margin-top uk-display-block" routerLink="/register" routerLinkActive="active">Register</a>
+  </form>
+</div>

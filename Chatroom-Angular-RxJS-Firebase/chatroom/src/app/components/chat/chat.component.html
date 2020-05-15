@@ -1,0 +1,15 @@
+<div class="chat-wrapper">
+  <div class="uk-grid-small uk-flex-middle" uk-grid>
+    <div class="uk-width-expand">
+      <h3 class="uk-card-title uk-text-light uk-margin-remove-bottom">{{ this.chat.name | limitTo: 15 }}</h3>
+      <p *ngIf="this.chat.timestamp; else newChatInfo" class="uk-text-meta uk-margin-remove-top">
+        <time class="uk-text-emphasis">{{ this.chat.timestamp | toDate }}</time>
+        <span class="uk-text-italic"> {{ this.chat.nameOfLastSender }}</span> - <span class="uk-text-muted">{{ this.chat.lastMessage | limitTo: 35 }}</span>
+      </p>
+      <ng-template #newChatInfo>
+        <p class="uk-text-meta uk-margin-remove-top">Nothing here yet ...</p>
+      </ng-template>
+    </div>
+    <a (click)="deleteChat()" class="uk-icon-link" uk-icon="close"></a>
+  </div>
+</div>

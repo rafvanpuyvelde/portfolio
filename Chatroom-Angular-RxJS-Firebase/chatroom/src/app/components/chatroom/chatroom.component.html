@@ -1,0 +1,41 @@
+<div class="chatroom-wrapper">
+  <div class="chat-overview-wrapper uk-padding-small">
+    <h1>
+      Chats
+      <span (click)="chatCreationModalShown = !chatCreationModalShown" class="uk-icon-button" uk-icon="plus-circle"></span>
+    </h1>
+
+    <div *ngIf="chatCreationModalShown" class="add-chat-modal-wrapper">
+      <form [formGroup]="createChatForm" (ngSubmit)="addChat()">
+        <div class="uk-inline uk-width-1-1">
+          <span class="uk-form-icon uk-form-icon-flip uk-text-primary" uk-icon="icon: pencil"></span>
+          <input
+            class="uk-input"
+            type="text"
+            placeholder="name"
+            formControlName="chatName"
+          >
+        </div>
+        <span class="uk-text-meta uk-text-center uk-text-primary" *ngIf="(chatName.dirty || chatName.touched) && chatName.invalid && chatName.errors.required">Name is required.</span>
+        <button type="submit" style="display:none;visibility: hidden;" [disabled]="!createChatForm.valid"></button>
+      </form>
+    </div>
+
+    <ul class="uk-list uk-list-divider">
+      <li *ngFor="let chat of chats | async">
+        <a *ngIf="chat.name" [routerLink]="['chat', chat.key]" (click)="onSelect(chat, chat.key)">
+          <chat [chat]="chat"></chat>
+        </a>
+      </li>
+    </ul>
+
+    <a id="btn-logout" (click)="logout()" href="#" class="uk-margin-small-right uk-button uk-button-default">
+      <span>Logout</span>
+      <span class="uk-text-primary" uk-icon="icon: sign-out"></span>
+    </a>
+  </div>
+
+  <div class="chat-detail-wrapper uk-padding-small">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+@import "./node_modules/bulma/bulma";
+@import "./node_modules/bulma/sass/utilities/mixins.sass";
+@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,800,900);
+
+// Fonts
+$primaryFont: 'Nunito', sans-serif;
+$primaryFontColor: #19233B;
+$success: #29CC97;
+$warning: #FEC400;
+$error: #E91E63;
+
+// Colors
+$backgroundColorPrimary: #ffffff;
+$backgroundColorSecondary: #f5f6fa;
+$borderColor: #e5e6eb;
+$primaryColor: #4c84ff;
+$secondaryColor: #bfc5d1;
+
+// Other
+$shadow-color: rgba(0,0,0,.25);
